@@ -11,6 +11,14 @@ function App() {
     setListaOS((listaAnterior) => [...listaAnterior, novaOS]);
   };
 
+  const finalizarOS = (id: number) => {
+    setListaOS((listaAnterior) =>
+      listaAnterior.map((os) =>
+        os.id === id ? { ...os, status: "Finalizado" } : os,
+      ),
+    );
+  };
+
   return (
     <div className="bg-gray-800 min-h-screen font-['inter']">
       <Header />
@@ -18,7 +26,7 @@ function App() {
       <div className="p-8 max-w-3xl mx-auto">
         <NewServiceForm adicionarOS={lidarComNovaOs} />
         {listaOS.map((os) => (
-          <ServiceCard key={os.id} data={os} />
+          <ServiceCard key={os.id} data={os} finalizarOS={finalizarOS} />
         ))}
       </div>
     </div>
