@@ -24,7 +24,10 @@ const ServiceCard = ({ data }: ServiceCardProps) => {
         <strong>Defeito:</strong>
         {data.defeito}
       </p>
-      <p><strong>Status:</strong>{data.status}</p>
+      <p>
+        <strong>Status:</strong>
+        {data.status}
+      </p>
     </div>
   );
 };
